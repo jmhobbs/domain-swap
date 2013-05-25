@@ -3,16 +3,6 @@
 	<head>
 		<title>Domain Switcher Options</title>
 		<link rel="stylesheet" href="vendor/bootstrap.min.css" />
-		<style>
-			.container {
-				position: relative;
-			}
-			.alert-fixed {
-				position: absolute;
-				bottom: 5px;
-				width: 100%;
-			}
-		</style>
 	</head>
 	<body>
 		<div class="container">
@@ -24,6 +14,7 @@
 			<div class="form-actions">
 				<button id="save" class="btn btn-primary">Save</button>
 				<button id="add_set" class="btn">Add Set</button>
+				<div id="message" style="display: inline-block; font-weight: bold;"></div>
 			</div>
 		</div>
 	</body>
@@ -46,9 +37,7 @@
 			<hr/>
 		</form>
 	</script>
-	<script src="vendor/jquery-1.9.1.min.js"></script>
 	<script src="domain-sets.js"></script>
 	<script src="storage.js"></script>
-	<script src="ui.js"></script>
 	<script src="options.js"></script>
 </html>
