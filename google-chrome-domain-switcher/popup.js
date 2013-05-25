@@ -1,7 +1,7 @@
 var sets = Storage.load();
 
 if( sets.length === 0 ) {
-	$('#message').text('No Domain Sets Defined');
+	document.querySelector('#message').textContent = 'No Domain Sets Defined';
 }
 else {
 	chrome.tabs.getSelected(null, function (tab){
@@ -13,8 +13,8 @@ else {
 
 		hostname = link.hostname + (("" === link.port) ? "" : ":" + link.port);
 
-		$.each(sets, function (set_i, set) {
-			$.each(set.domains, function (domain_i, domain) {
+		sets.forEach(function (set, set_i) {
+			set.domains.forEach(function (domain, domain_i) {
 				if( hostname === domain ) {
 					found_set = set;
 					return false;
@@ -26,22 +26,26 @@ else {
 		});
 
 		if( found_set ) {
-			$('#message').text(found_set.name);
-			$.each(found_set.domains, function (i, domain) {
+			document.querySelector('#message').textContent = found_set.name;
+			found_set.domains.forEach(function(domain, i) {
 				if( hostname !== domain ) {
-					$('#options').append($('<li/>').append($('<a/>').attr('href', '#').text(domain).data('domain', domain)));
+          var template = '<li><a href="#" data-domain="' + domain + '">' + domain + '</a></li>';
+          document.querySelector('#options').innerHTML += template;
 				}
 			});
-			$('a').on('click', function () {
-				var parts = $(this).data('domain').split(':');
-				link.hostname = parts[0];
-				link.port = parts[1] || '80';
-				chrome.tabs.update(tab.id, {url: link.href});
-				window.close();
-			});
+			var links = document.querySelectorAll('a');
+      for (var i = 0; i < links.length; i++) {
+          links[i].addEventListener('click', function (e) {
+            var parts = this.dataset.domain.split(':');
+            link.hostname = parts[0];
+            link.port = parts[1] || '80';
+            chrome.tabs.update(tab.id, {url: link.href});
+            window.close();
+          });
+			}
 		}
 		else {
-			$('#message').text('No set for: ' + hostname);
+			document.querySelector('#message').textContent = 'No set for: ' + hostname;
 		}
 	});
 }
