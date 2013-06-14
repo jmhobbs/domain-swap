@@ -26,6 +26,20 @@ else {
 		});
 
 		if( found_set ) {
+			// Short-circuit the popup when only two domains in the set
+			if( found_set.domains.length === 2 ) {
+				found_set.domains.forEach(function(domain, i) {
+					if( hostname !== domain ) {
+						var parts = domain.split(':');
+						link.hostname = parts[0];
+						link.port = parts[1] || '80';
+						chrome.tabs.update(tab.id, {url: link.href});
+						window.close();
+						return false;
+					}
+				});
+			}
+
 			document.querySelector('#message').textContent = found_set.name;
 			found_set.domains.forEach(function(domain, i) {
 				if( hostname !== domain ) {
