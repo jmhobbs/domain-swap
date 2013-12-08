@@ -1,6 +1,6 @@
 var Storage = {
 	store: function (sets) {
-	  localStorage.domain_sets = JSON.stringify(sets);
+		localStorage.domain_sets = JSON.stringify(sets);
 	},
 
 	load: function () {
