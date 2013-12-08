@@ -9,7 +9,7 @@
 		},
 		setUrl: function( hostname, port ) {
 			link.hostname = hostname;
-			link.port = port || '80';
+			link.port = port || ( link.protocol === 'https:' ? '443' : '80' );
 
 			return link.href;
 		},
