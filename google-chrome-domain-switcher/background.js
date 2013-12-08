@@ -1,6 +1,5 @@
 function checkForDomainSet(tabId, changeInfo, tab) {
-	var activeSet = DomainSwitcher.getCurrentSet( tab ),
-		hostname;
+	var activeSet = DomainSwitcher.getCurrentSet( tab );
 
 	if( activeSet ) {
 		if( activeSet.domains.length > 2 ) {
@@ -10,9 +9,10 @@ function checkForDomainSet(tabId, changeInfo, tab) {
 			});
 		} else {
 			chrome.pageAction.onClicked.addListener(function( tab ) {
-				hostname = DomainSwitcher.getHostname( tab );
+				var set = DomainSwitcher.getCurrentSet( tab ),
+					hostname = DomainSwitcher.getHostname( tab );
 
-				activeSet.domains.forEach(function(domain, i) {
+				set.domains.forEach(function(domain, i) {
 					if( hostname !== domain ) {
 						var parts = domain.split(':'),
 							newUrl = DomainSwitcher.setUrl( parts[ 0 ], parts[ 1 ] );
