@@ -1,8 +1,11 @@
 {
 	"name": "Domain Switcher",
-	"version": "2.0",
+	"short_name": "Domain Switcher",
+	"version": "2.0.0",
 	"manifest_version": 2,
 	"description": "Switch domains without switching paths.",
+	"default_locale": "en",
+	"homepage_url": "https://github.com/jmhobbs/google-chome-domain-switcher",
 	"icons": {
 		"128": "icon-128x128.png",
 		"64": "icon-64x64.png",
