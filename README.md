@@ -22,3 +22,7 @@ This is not complete, it's not efficient, but it works.
    ![links](readme/popup.png)
 1. Use the links to jump to another domain with the same path
 1. Find some bugs, or clean up the code, then open a pull request
+
+# License
+
+MIT
