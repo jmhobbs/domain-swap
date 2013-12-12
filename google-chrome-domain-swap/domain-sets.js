@@ -10,16 +10,27 @@ var DomainSet = function (name, domains) {
 	/**
 	 * Return a normal form for a domain, allows us to easily search.
 	 */
-	this._normalizeDomain = function (domain) {
+	this._normalizeHost = function (domain) {
 		return domain.toLowerCase().trim();
+	};
+
+	this._domainToStruct = function (domain) {
+		var a = window.document.createElement('a');
+		a.href = 'http://' + domain.trim();
+		return {
+			host: this._normalizeHost(a.host),
+			path: a.pathname.replace(/\/+$/, '') + '/'  // Enforce trailing slash. Eww.
+		};
 	};
 
 	/**
 	 * Add a domain to this set.
 	 */
 	this.add = function (domain) {
-		domain = this._normalizeDomain(domain);
-		if( ! this.contains(domain) && 0 < domain.length ) {
+		if( "string" === typeof(domain) ) {
+			domain = this._domainToStruct(domain);
+		}
+		if( ! this.contains(domain.host) && 0 < domain.host.length ) {
 			this.domains.push(domain);
 		}
 	};
@@ -34,8 +45,17 @@ var DomainSet = function (name, domains) {
 	/**
 	 * Test if the set contains a domain.
 	 */
-	this.contains = function (domain) {
-		return -1 !== this.domains.indexOf(this._normalizeDomain(domain));
+	this.contains = function (host) {
+		var i,
+				normal_host = this._normalizeHost(host);
+
+		for( i in this.domains ) {
+			if( this.domains.hasOwnProperty(i) ) {
+				if ( this.domains[i].host === normal_host ) { return true; }
+			}
+		}
+
+		return false;
 	};
 
 	this.toJSON = function () {
