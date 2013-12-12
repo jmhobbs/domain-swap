@@ -1,0 +1,203 @@
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Shared */
+
+body { 
+	font-family: "Helvetica Neue", Helvetica, Arial, Geneva, Tahoma, Verdana, sans-serif;
+	color: #444;
+	background: #FFF;
+}
+
+h1 {
+	font-size: 150%;
+}
+
+h4 {
+	font-weight: bold;
+	font-size: 105%;
+}
+
+hr {
+	height: 0;
+	border-top: 1px solid #777;
+	margin-top: 0;
+}
+
+.pull-right {
+	float: right;
+}
+
+button {
+	border-radius: 8px;
+	background: #DDD;
+	color: #444;
+	border: 1px solid #AAA;
+	padding: 10px;
+	cursor: pointer;
+}
+
+button:hover {
+	background: #EEE;
+}
+
+button:active {
+	background: #BBB;
+}
+
+label {
+	display: block;
+	margin: 10px 0 5px;
+	font-size: 90%;
+	font-weight: bold;
+}
+
+p.help {
+	font-size: 70%;
+	color: #777;
+	margin: 3px 0 10px;
+}
+
+input, textarea {
+	width: 80%;
+}
+
+/* Popup */
+
+body.popup h4 {
+	margin: 10px;
+}
+
+body.popup ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+body.popup li {
+	padding: 0;
+	margin: 0;
+}
+
+body.popup li a {
+	margin: 0;
+	padding: 5px 10px;
+	display: block;
+	text-decoration: none;
+	font-size: 80%;
+}
+
+body.popup li a, body.popup li a:visited, body.popup li a:active {
+	background: transparent;
+	color: #444;
+	border: none;
+}
+
+body.popup li a:hover {
+	background: #444;
+	color: #FFF;
+	border: none;
+}
+
+/* Options */
+
+body.options {
+	padding: 20px 15px;
+}
+
+body.options h1 {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #444;
+}
+
+body.options button#save {
+	color: #FFF;
+	background-color: #5CB85C;
+	border-color: #4CAE4C;
+}
+
+body.options button#save:hover {
+	background-color: #47A447;
+}
+
+body.options button#save:active {
+	background-color: #3E8F3E;
+}
+
+body.options button#add_set {
+	color: #FFF;
+	background-color: #39B3D7;
+	border-color: #269ABC;
+}
+
+body.options button#add_set:hover {
+	background-color: #339FBF;
+}
+
+body.options button#add_set:active {
+	background-color: #297F99;
+}
+
+body.options button.delete_set {
+	color: #FFF;
+	background-color: #D2322D;
+	border-color: #AC2925;
+}
+
+body.options button.delete_set:hover {
+	background-color: #BF2E29;
+}
+
+body.options button.delete_set:active {
+	background-color: #992421;
+}
+
+body.options #message {
+	display: inline-block;
+	font-weight: bold;
+}

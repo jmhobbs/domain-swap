@@ -2,38 +2,28 @@
 <html lang="en">
 	<head>
 		<title>Domain Switcher Options</title>
-		<link rel="stylesheet" href="vendor/bootstrap.min.css" />
+		<link rel="stylesheet" href="style.css" />
 	</head>
-	<body>
-		<div class="container">
-			<h1>Domain Sets</h1>
-			<hr/>
-			<div id="domain_sets"></div>
-			<br/>
-			<div id="status"></div>
-			<div class="form-actions">
-				<button id="save" class="btn btn-primary">Save</button>
-				<button id="add_set" class="btn">Add Set</button>
-				<div id="message" style="display: inline-block; font-weight: bold;"></div>
-			</div>
+	<body class="options">
+		<h1>Domain Sets</h1>
+		<div id="domain_sets"></div>
+		<br/>
+		<div id="status"></div>
+		<div class="form-actions">
+			<button id="save">Save</button>
+			<button id="add_set">Add Set</button>
+			<div id="message"></div>
 		</div>
 	</body>
 	<script type="text/template" id="domain_set_template">
-		<form class="domain_set form-horizontal">
-			<button class="delete_set pull-right btn btn-danger">Delete This Set</button>
-			<div class="control-group">
-				<label class="control-label">Name</label>
-				<div class="controls">
-					<input type="text" class="span6" placeholder="Project Name">
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">Domains</label>
-				<div class="controls">
-					<textarea rows="5" class="span6"></textarea>
-					<span class="help-block">One domain per line.</span>
-				</div>
-			</div>
+		<form class="domain_set">
+			<button class="delete_set pull-right">Delete This Set</button>
+			<label>Name</label>
+			<input type="text" class="span6" placeholder="Project Name">
+
+			<label>Domains</label>
+			<textarea rows="5"></textarea>
+			<p class="help">One domain per line.</p>
 			<hr/>
 		</form>
 	</script>
