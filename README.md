@@ -10,8 +10,7 @@ This is not complete, it's not efficient, but it works.
 
 # Usage
 
-1. Clone this repo
-1. Add the google-chrome-domain switcher as an unpacked extension from [chrome://extensions](chrome://extensions)
+1. Get it from the Chrome web store; https://chrome.google.com/webstore/detail/domain-swap/ngiiihlebepigjbefembddhdplmaghep
 1. Visit the options page
 1. Add a domain set and save it
     
