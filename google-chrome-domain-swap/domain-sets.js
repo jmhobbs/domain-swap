@@ -2,6 +2,8 @@
  * A set of domains, with a name.
  */
 var DomainSet = function (name, domains) {
+	var i;
+
 	this.name = name || "";
 	this.domains = [];
 
@@ -42,8 +44,10 @@ var DomainSet = function (name, domains) {
 
 	// Add them individually to ensure they are normalized and unique.
 	if( domains ) {
-		for( var i in domains ) {
-			this.add(domains[i]);
+		for(i in domains ) {
+			if( domains.hasOwnProperty(i) ) {
+				this.add(domains[i]);
+			}
 		}
 	}
 
