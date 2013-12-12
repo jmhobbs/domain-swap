@@ -26,7 +26,7 @@ function add_domain_set (target, template, set) {
 	tmp_div.innerHTML = template.textContent;
 	if( 'undefined' !== typeof set ) {
 		tmp_div.querySelector('input').value = set.name;
-		tmp_div.querySelector('textarea').value = set.domains.join("\n");
+		tmp_div.querySelector('textarea').value = set.domains.map(function (s) { return s.host + s.path; }).join("\n");
 	}
 	tmp_div.querySelector('button.delete_set').addEventListener('click', function (e) { e.preventDefault(); this.parentNode.remove(); });
 	target.appendChild(tmp_div.querySelector('form'));

@@ -7,9 +7,11 @@
 			link.href = tab.url;
 			return link.hostname + (("" === link.port) ? "" : ":" + link.port);
 		},
-		setUrl: function( hostname, port ) {
+		setUrl: function( hostname, port, from_path, to_path ) {
 			link.hostname = hostname;
 			link.port = port || ( link.protocol === 'https:' ? '443' : '80' );
+
+			link.pathname = link.pathname.replace(from_path, to_path);
 
 			return link.href;
 		},
@@ -20,7 +22,7 @@
 
 			sets.forEach(function (set, set_i) {
 				set.domains.forEach(function (domain, domain_i) {
-					if( hostname === domain ) {
+					if( hostname === domain.host ) {
 						found_set = set;
 						return false;
 					}
