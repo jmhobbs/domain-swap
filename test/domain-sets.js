@@ -33,6 +33,8 @@ test( 'DomainSet Set Behavior', function () {
 	deepEqual(empty.domains, ['google.com', 'bing.com']);
 	empty.add('GOOGLE.COM');
 	deepEqual(empty.domains, ['google.com', 'bing.com']);
+	empty.add('    ');
+	deepEqual(empty.domains, ['google.com', 'bing.com']);
 
 	deepEqual(full.domains, ['google.com', 'bing.com']);
 });

@@ -17,7 +17,7 @@ var DomainSet = function (name, domains) {
 	 */
 	this.add = function (domain) {
 		domain = this._normalizeDomain(domain);
-		if( ! this.contains(domain) ) {
+		if( ! this.contains(domain) && 0 < domain.length ) {
 			this.domains.push(domain);
 		}
 	};
